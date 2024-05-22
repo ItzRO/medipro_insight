@@ -1,9 +1,8 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:http_parser/http_parser.dart';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Option3Page extends StatefulWidget {
   const Option3Page({super.key});
@@ -14,53 +13,75 @@ class Option3Page extends StatefulWidget {
 
 class _Option3PageState extends State<Option3Page> {
   File? _image;
-  String url='';
-  String _prediction = '';
+  String? _prediction;
 
-  Future<void> _getImageAndPredict() async {
+  Future<void> _pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
       setState(() {
         _image = File(pickedFile.path);
-        _prediction = 'Predicting...';
-      });
-      List<int> ib = await pickedFile.readAsBytes();
-      var res = await http.post(Uri.parse('http://127.0.0.1:5000/'),
-      headers: {HttpHeaders.contentTypeHeader:'multipart/form-data'},//image/jpeg multipart/form-data
-      body:ib );
-      print(res.body);
-      setState(() {
-        _prediction =res.body.toString();
       });
     }
   }
- 
+
+  Future<void> _uploadImage(File imageFile) async {
+    final uri = Uri.parse('http://192.168.29.247:5000');
+    final request = http.MultipartRequest('POST', uri)
+      ..files.add(await http.MultipartFile.fromPath('file', imageFile.path));
+
+    final response = await request.send();
+
+    if (response.statusCode == 200) {
+      final responseBody = await http.Response.fromStream(response);
+      final Map<String, dynamic> responseData = json.decode(responseBody.body);
+      setState(() {
+        _prediction = responseData['prediction'];
+      });
+    } else {
+      setState(() {
+        _prediction = 'Failed to get prediction';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Brain Tumor Classification'),
+        title: const Text(
+          'Pneumonia Detection',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             _image == null
-                ? const  Text('No image selected.')
-                : Text('No image selected.'),//Image.file(_image!),
-            const SizedBox(height: 20),
+                ? const Text('No image selected.')
+                : Image.file(_image!),
             ElevatedButton(
-              onPressed: _getImageAndPredict,
-              child: const Text('Select Image and Predict'),
+              onPressed: _pickImage,
+              child: const Text('Pick Image from Gallery'),
             ),
-           const  SizedBox(height: 20),
-            Text(
-              'Prediction: $_prediction',
-              style: TextStyle(fontSize: 18),
-            ),
+            if (_image != null)
+              ElevatedButton(
+                onPressed: () => _uploadImage(_image!),
+                child: const Text('Upload and Predict'),
+              ),
+            if (_prediction != null)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Prediction: $_prediction',
+                  style: const TextStyle(fontSize: 20),
+                ),
+              ),
           ],
         ),
       ),

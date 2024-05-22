@@ -27,7 +27,7 @@ class _Option4PageState extends State<Option4Page> {
   }
 
   Future<void> _uploadImage(File imageFile) async {
-    final uri = Uri.parse('http://172.16.7.55:5000');
+    final uri = Uri.parse('http://192.168.29.247:5000');
     final request = http.MultipartRequest('POST', uri)
       ..files.add(await http.MultipartFile.fromPath('file', imageFile.path));
 
@@ -51,7 +51,7 @@ class _Option4PageState extends State<Option4Page> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Option 4 Details',
+          'Brain Tumor Detection',
           style: TextStyle(
             color: Colors.white,
           ),

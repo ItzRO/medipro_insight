@@ -76,7 +76,7 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                     );
                   },
                   child:  Text(
-                    'Breast Cancer',
+                    'Pneumonia',
                     style: TextStyle(fontSize: buttonFontSize),
                   ),
                 ),
