@@ -65,7 +65,7 @@ class _Option5PageState extends State<Option5Page> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Heart Attack Prediction',
+          'Heart Attack Detection',
           style: TextStyle(
             color: Colors.white,
           ),
