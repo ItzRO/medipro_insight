@@ -27,7 +27,7 @@ class _Option3PageState extends State<Option3Page> {
   }
 
   Future<void> _uploadImage(File imageFile) async {
-    final uri = Uri.parse('http://192.168.29.247:5000');
+    final uri = Uri.parse('http://10.0.2.2:5001');
     final request = http.MultipartRequest('POST', uri)
       ..files.add(await http.MultipartFile.fromPath('file', imageFile.path));
 

@@ -50,7 +50,7 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                     );
                   },
                   child:  Text(
-                    'Skin Cancer',
+                    'Chronic Kidney',
                     style: TextStyle(fontSize: buttonFontSize),
                   ),
                 ),
@@ -63,7 +63,7 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                     );
                   },
                   child: Text(
-                    'Lung Cancer',
+                    'Malaria',
                     style: TextStyle(fontSize: buttonFontSize),
                   ),
                 ),
@@ -102,7 +102,7 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                     );
                   },
                   child:  Text(
-                    'Diabetes',
+                    'Heart Attack',
                     style: TextStyle(fontSize: buttonFontSize),
                   ),
                 ),
@@ -115,12 +115,12 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                     );
                   },
                   child:  Text(
-                    'Heart Disease',
+                    'Polycystic Ovary Syndrome',
                     style: TextStyle(fontSize: buttonFontSize),
                   ),
                 ),
                 const SizedBox(height: 25.0),
-                ElevatedButton(
+                /*ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -133,7 +133,7 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
                   ),
                 ),
                 const SizedBox(height: 25.0),
-                /*ElevatedButton(
+                ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
