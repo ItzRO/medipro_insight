@@ -50,10 +50,13 @@ class _Option3PageState extends State<Option3Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Pneumonia Detection',
           style: TextStyle(
             color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.lightBlue,

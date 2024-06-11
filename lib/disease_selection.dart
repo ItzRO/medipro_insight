@@ -22,11 +22,12 @@ class _DiseaseSelectionState extends State<DiseaseSelection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[400],
+        backgroundColor: Colors.cyan,
         title: const Text('Select the disease for prediction'),
         titleTextStyle: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic,
           fontSize: 25,
         ),
         centerTitle: true,

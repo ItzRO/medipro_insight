@@ -50,10 +50,13 @@ class _Option4PageState extends State<Option4Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Brain Tumor Detection',
           style: TextStyle(
             color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.lightBlue,

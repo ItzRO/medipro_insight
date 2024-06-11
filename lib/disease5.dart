@@ -64,10 +64,13 @@ class _Option5PageState extends State<Option5Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Heart Attack Detection',
           style: TextStyle(
             color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.lightBlue,

@@ -50,10 +50,13 @@ class _Option6PageState extends State<Option6Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'PCOS Detection',
           style: TextStyle(
             color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.lightBlue,

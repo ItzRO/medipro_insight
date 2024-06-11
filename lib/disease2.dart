@@ -50,10 +50,13 @@ class _Option2PageState extends State<Option2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Malaria Detection',
           style: TextStyle(
             color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.lightBlue,

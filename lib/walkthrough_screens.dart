@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medipro_insight/home_screen.dart';
 import 'disease_selection.dart';
 
 class WalkthroughScreen1 extends StatelessWidget {
@@ -20,7 +21,10 @@ class WalkthroughScreen1 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: Image.asset('assets/image.gif')),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(child: Image.asset('assets/image.gif')),
+                ),
                 const Text(
                   'Begin your proactive health journey with confidence',
                   style: TextStyle(
@@ -68,7 +72,10 @@ class WalkthroughScreen2 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: Image.asset('assets/image2.gif')),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(child: Image.asset('assets/image2.gif')),
+                ),
                 const Text(
                   "Prevention is better than cure—let's start today",
                   style: TextStyle(
@@ -115,7 +122,10 @@ class WalkthroughScreen3 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: Image.asset('assets/image3.gif')),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(child: Image.asset('assets/image3.gif')),
+                ),
                 const Text(
                   'Ready to take control of your health?',
                   style: TextStyle(
@@ -135,7 +145,7 @@ class WalkthroughScreen3 extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const DiseaseSelection()),
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
                 child: const Text('Get Started'),
