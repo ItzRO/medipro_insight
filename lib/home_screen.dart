@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:medipro_insight/about_page.dart';
 import 'package:medipro_insight/disease_selection.dart';
+import 'package:medipro_insight/feedback_page.dart';
 import 'package:medipro_insight/remedies_page.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,8 +17,8 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.cyan,
         title: const Text(
           'Welcome To MEDI-PRO INSIGHT',
-          style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white),
-          ),
+          style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -31,8 +33,7 @@ class HomeScreen extends StatelessWidget {
                 child: Image.asset(
                   'assets/doctor_penguin.gif',
                   fit: BoxFit.fitWidth,
-              
-                  ),
+                ),
               ),
             ),
             const Padding(
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 25,
                 ),
-                ),
+              ),
             ),
             Expanded(
               child: Row(
@@ -55,8 +56,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const DiseaseSelection()),
+                        MaterialPageRoute(builder: (context) => const DiseaseSelection()),
                       );
                     },
                     child: const Text(
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 25,
                       ),
-                      ),
+                    ),
                   ),
                 ],
               ),
@@ -89,42 +89,56 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomAppBar(
+      bottomNavigationBar: BottomAppBar(
         color: Colors.grey,
         height: 100,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InkWell(
-              child: Column(
+            IconButton(
+              icon: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Icon(
                     Icons.account_circle_rounded,
                     size: 40,
+                    color: Colors.white,
                   ),
                   Text(
                     'About',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ],
               ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()), // Navigate to the AboutPage
+                );
+              },
             ),
-            InkWell(
-              child: Column(
+            IconButton(
+              icon: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Icon(
                     Icons.feedback,
                     size: 40,
+                    color: Colors.white,
                   ),
                   Text(
                     'Feedback',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ],
               ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedbackPage()), // Navigate to the FeedbackPage
+                );
+              },
             ),
           ],
         ),
