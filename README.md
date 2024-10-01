@@ -1,15 +1,14 @@
 # medipro_insight
 
-A new Flutter project.
+This is a Flutter project used for multi-disease prediction.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This application predicts upto 6 diseases. It includes both text input as well as image input for disease prediction.
+It uses factual medical inputs for the particular disease to be predicted. 
+We have used few Deep Learning and Machine Learning Algorithms for training each model for each disease.
+We have integrated the database to the flutter application using Flask API.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
